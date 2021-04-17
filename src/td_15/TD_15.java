@@ -1,21 +1,40 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package td_15;
 
-/**
- *
- * @author Nel
- */
-public class TD_15 {
+import java.util.Scanner;
 
-    /**
-     * @param args the command line arguments
-     */
+public class TD_15 {
+    
+    static Scanner sc = new Scanner(System.in);
+
     public static void main(String[] args) {
-        // TODO code application logic here
+        String nombre = pedirValor("¿Cual es tu nombre?");
+        String apellidoPaterno = pedirValor("¿Cual es tu nombre?");
+        String apellidoMaterno = pedirValor("¿Cual es tu nombre?");
+        String run = pedirValor("¿Cual es tu nombre?");
+        byte edad = Byte.parseByte(pedirValor("¿Cual es tu nombre?"));
+        char genero = pedirValor("¿Cual es tu nombre?").charAt(0);
+        int sueldoBruto = Integer.parseInt(pedirValor("¿Cual es tu nombre?")); 
+        
+        Empleado empleado = new Empleado(nombre, apellidoPaterno, apellidoMaterno, run, edad, genero, sueldoBruto);
+        
+        empleado.imprimirInformacionEmpleado();
+        
+        empleado.calcularSueldoLiquido();
+        
+        float ipc = Float.parseFloat(pedirValor("¿Cual es el valor del IPC?"));
+        empleado.aumentoSueldoSegunIPC(ipc);
+        empleado.imprimirInformacionEmpleado();
+        
     }
+    
+    public static String pedirValor(String solicitud){
+        System.out.println(solicitud);
+        String entrada = sc.next();
+        return entrada;
+    }
+    
+    
+    
     
 }
